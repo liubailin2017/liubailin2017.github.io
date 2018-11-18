@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="liubailin2017@github.io/"/>
-  <updated>2018-06-16T05:28:16.800Z</updated>
+  <updated>2018-11-18T13:50:53.554Z</updated>
   <id>liubailin2017@github.io/</id>
   
   <author>
@@ -17,33 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>校园社区 app 主页</title>
-    <link href="liubailin2017@github.io/2018/06/16/my-shool-main-page/"/>
-    <id>liubailin2017@github.io/2018/06/16/my-shool-main-page/</id>
-    <published>2018-06-16T04:00:12.000Z</published>
-    <updated>2018-06-16T05:28:16.800Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><ul><li><a href="https://github.com/liubailin2017/MyShoolResouce/blob/master/apk/myschool.apk?raw=true" target="_blank" rel="noopener">校园社区 app</a>.</li><li><a href="源码暂时不放出来">源码</a>;</li></ul><h3 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h3><p><img src="/images/Screenshot_20180616-112936.png" alt="img">.</p><ul><li>note 暂时不提供注册功能，可使用内测帐号，或把你的信息（名字，学号，学校）发送到<a href="mailto:liubailinprivate@163.com" target="_blank" rel="noopener">liubailinprivate@163.com</a></li></ul><h3 id="登录成功"><a href="#登录成功" class="headerlink" title="登录成功"></a>登录成功</h3><p><img src="/images/Screenshot_20180616-113004.png" alt="img"></p><ul><li>查看自己可使用的各个模块<h3 id="进入我的动态模块"><a href="#进入我的动态模块" class="headerlink" title="进入我的动态模块"></a>进入我的动态模块</h3><img src="/images/Screenshot_20180616-113038.png" alt="img"></li><li>查看、删除、发表 动态。</li><li>发表了，就不能编辑了，因为别人是对你当前发表的作的评论。<h3 id="进入同学动态模块"><a href="#进入同学动态模块" class="headerlink" title="进入同学动态模块"></a>进入同学动态模块</h3><img src="/images/Screenshot_20180616-113148.png" alt="img"></li><li>查看同学动态，点击查看详细<h3 id="评论动态"><a href="#评论动态" class="headerlink" title="评论动态"></a>评论动态</h3><img src="/images/Screenshot_20180616-113113.png" alt="img"></li><li>查看评论，评论论等。</li><li>点击下面评论可以对每一个评论进行回复。<h3 id="即将加入的功能"><a href="#即将加入的功能" class="headerlink" title="即将加入的功能"></a>即将加入的功能</h3></li><li>网络抓取功能<br>  抓取一些有意思的东西，如 每日一句，每日一文等。</li><li>消息提示功能<br>  目前同学回复了消息不会自动提示，既将加入。</li></ul><h4 id="最后请点下面赞赏，支持作者开发进度。"><a href="#最后请点下面赞赏，支持作者开发进度。" class="headerlink" title="最后请点下面赞赏，支持作者开发进度。"></a>最后请点下面赞赏，支持作者开发进度。</h4>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;下载&quot;&gt;&lt;a href=&quot;#下载&quot; class=&quot;headerlink&quot; title=&quot;下载&quot;&gt;&lt;/a&gt;下载&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/liubailin2017/MyShoolResouce/blob/ma
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Hello World</title>
-    <link href="liubailin2017@github.io/2018/03/23/hello-world/"/>
-    <id>liubailin2017@github.io/2018/03/23/hello-world/</id>
-    <published>2018-03-23T08:14:30.340Z</published>
-    <updated>2018-03-23T08:14:30.340Z</updated>
+    <link href="liubailin2017@github.io/2018/11/18/hello-world/"/>
+    <id>liubailin2017@github.io/2018/11/18/hello-world/</id>
+    <published>2018-11-18T13:50:53.590Z</published>
+    <updated>2018-11-18T13:50:53.554Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
     
@@ -56,6 +34,64 @@
     
     </summary>
     
+      <category term="frist" scheme="liubailin2017@github.io/categories/frist/"/>
+    
+    
+      <category term="随笔" scheme="liubailin2017@github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+      <category term="frist" scheme="liubailin2017@github.io/tags/frist/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>return</title>
+    <link href="liubailin2017@github.io/2018/11/18/return/"/>
+    <id>liubailin2017@github.io/2018/11/18/return/</id>
+    <published>2018-11-18T06:17:55.000Z</published>
+    <updated>2018-11-18T06:24:42.285Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="回来"><a href="#回来" class="headerlink" title="回来"></a>回来</h2><pre><code>现在回来开始写博客.</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;回来&quot;&gt;&lt;a href=&quot;#回来&quot; class=&quot;headerlink&quot; title=&quot;回来&quot;&gt;&lt;/a&gt;回来&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;现在回来开始写博客.
+&lt;/code&gt;&lt;/pre&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="随笔" scheme="liubailin2017@github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>校园社区 app 主页</title>
+    <link href="liubailin2017@github.io/2018/06/16/my-shool-main-page/"/>
+    <id>liubailin2017@github.io/2018/06/16/my-shool-main-page/</id>
+    <published>2018-06-16T04:00:12.000Z</published>
+    <updated>2018-11-18T13:49:49.859Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><ul><li><a href="https://github.com/liubailin2017/MyShoolResouce/blob/master/apk/myschool.apk?raw=true" target="_blank" rel="noopener">校园社区 app</a>.</li><li><a href="源码暂时不放出来">源码</a>;</li></ul><h3 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h3><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/Screenshot_20180616-112936.png" alt="img" title="">                </div>                <div class="image-caption">img</div>            </figure>.<br>- note 暂时不提供注册功能，可使用内测帐号，或把你的信息（名字，学号，学校）发送到<a href="mailto:liubailinprivate@163.com" target="_blank" rel="noopener">liubailinprivate@163.com</a><br><br>### 登录成功<br><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/Screenshot_20180616-113004.png" alt="img" title="">                </div>                <div class="image-caption">img</div>            </figure><ul><li>查看自己可使用的各个模块<h3 id="进入我的动态模块"><a href="#进入我的动态模块" class="headerlink" title="进入我的动态模块"></a>进入我的动态模块</h3><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/Screenshot_20180616-113038.png" alt="img" title="">                </div>                <div class="image-caption">img</div>            </figure></li><li>查看、删除、发表 动态。</li><li>发表了，就不能编辑了，因为别人是对你当前发表的作的评论。<h3 id="进入同学动态模块"><a href="#进入同学动态模块" class="headerlink" title="进入同学动态模块"></a>进入同学动态模块</h3><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/Screenshot_20180616-113148.png" alt="img" title="">                </div>                <div class="image-caption">img</div>            </figure></li><li>查看同学动态，点击查看详细<h3 id="评论动态"><a href="#评论动态" class="headerlink" title="评论动态"></a>评论动态</h3><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/Screenshot_20180616-113113.png" alt="img" title="">                </div>                <div class="image-caption">img</div>            </figure></li><li>查看评论，评论论等。</li><li>点击下面评论可以对每一个评论进行回复。<h3 id="即将加入的功能"><a href="#即将加入的功能" class="headerlink" title="即将加入的功能"></a>即将加入的功能</h3></li><li>网络抓取功能<br>  抓取一些有意思的东西，如 每日一句，每日一文等。</li><li>消息提示功能<br>  目前同学回复了消息不会自动提示，既将加入。</li></ul><h4 id="最后请点下面赞赏，支持作者开发进度。"><a href="#最后请点下面赞赏，支持作者开发进度。" class="headerlink" title="最后请点下面赞赏，支持作者开发进度。"></a>最后请点下面赞赏，支持作者开发进度。</h4>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;下载&quot;&gt;&lt;a href=&quot;#下载&quot; class=&quot;headerlink&quot; title=&quot;下载&quot;&gt;&lt;/a&gt;下载&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/liubailin2017/MyShoolResouce/blob/ma
+      
+    
+    </summary>
+    
+      <category term="android" scheme="liubailin2017@github.io/categories/android/"/>
+    
+    
+      <category term="安卓项目" scheme="liubailin2017@github.io/tags/%E5%AE%89%E5%8D%93%E9%A1%B9%E7%9B%AE/"/>
+    
+      <category term="android" scheme="liubailin2017@github.io/tags/android/"/>
     
   </entry>
   
