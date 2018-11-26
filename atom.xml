@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="liubailin2017@github.io/"/>
-  <updated>2018-11-26T12:23:41.517Z</updated>
+  <updated>2018-11-26T12:26:15.104Z</updated>
   <id>liubailin2017@github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello C</title>
+    <title>交换两数 C</title>
     <link href="liubailin2017@github.io/2018/11/26/HelloC/"/>
     <id>liubailin2017@github.io/2018/11/26/HelloC/</id>
-    <published>2018-11-26T12:23:41.517Z</published>
-    <updated>2018-11-26T12:23:41.517Z</updated>
+    <published>2018-11-26T12:26:15.104Z</published>
+    <updated>2018-11-26T12:26:15.104Z</updated>
     
     <content type="html"><![CDATA[<h4 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h4><p>​    今天在 <a href="https://pintia.cn/problem-sets/14/problems/813" target="_blank" rel="noopener">PTA</a>上练习c语言时,发现有一有意思的算法</p><p>​    先上代码:</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fact</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line"><span class="keyword">if</span>( a &lt; b) &#123; </span><br><span class="line">a = a ^ b;</span><br><span class="line">b = a ^ b;</span><br><span class="line">a = a ^ b; </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> c = <span class="number">0</span>; </span><br><span class="line"><span class="keyword">while</span>( c = a % b) &#123;</span><br><span class="line">a  = b ;</span><br><span class="line">b = c;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">int</span> a1,b1, a2,b2;</span><br><span class="line"><span class="keyword">int</span> ra,rb;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d/%d %d/%d"</span>,&amp;a1,&amp;b1,&amp;a2,&amp;b2);</span><br><span class="line">rb = b1*b2;</span><br><span class="line">ra = a1*b2+ a2*b1;</span><br><span class="line"><span class="keyword">int</span> f = fact(rb,ra);</span><br><span class="line"><span class="comment">//除以最大公因数</span></span><br><span class="line">rb /= f;</span><br><span class="line">ra /= f;</span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d"</span>,ra);</span><br><span class="line"><span class="keyword">if</span>(rb != <span class="number">1</span>) </span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"/%d"</span>,rb);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>发现这段代码没有</p> <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = a ^ b;</span><br><span class="line">b = a ^ b;</span><br><span class="line">a = a ^ b;</span><br></pre></td></tr></table></figure><p>这是交换两数的代码.是不是很神奇,后来我又在网上找了更多的交换两数的代码.</p><p>除去常用的 用个中间变量的方法以外,还可以用加减,不过可以产生溢出</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = a + b;</span><br><span class="line">b = a - b;</span><br><span class="line">a = a - b;</span><br></pre></td></tr></table></figure><p>当然也可以用乘除了,但是乘除就太容易溢出了,所以就不写出来了. : -)</p><p> 发现,这么简单的一件是还有这么多方法,还挺有意思的,不过说回来,用异或应该是最完美的吧.</p>]]></content>
     
@@ -37,9 +37,9 @@
       <category term="C" scheme="liubailin2017@github.io/categories/C/"/>
     
     
-      <category term="随笔" scheme="liubailin2017@github.io/tags/%E9%9A%8F%E7%AC%94/"/>
-    
       <category term="C" scheme="liubailin2017@github.io/tags/C/"/>
+    
+      <category term="随笔" scheme="liubailin2017@github.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
@@ -94,9 +94,9 @@
       <category term="frist" scheme="liubailin2017@github.io/categories/frist/"/>
     
     
-      <category term="frist" scheme="liubailin2017@github.io/tags/frist/"/>
-    
       <category term="随笔" scheme="liubailin2017@github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+      <category term="frist" scheme="liubailin2017@github.io/tags/frist/"/>
     
   </entry>
   
