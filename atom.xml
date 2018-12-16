@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="liubailin2017@github.io/"/>
-  <updated>2018-11-26T12:26:15.104Z</updated>
+  <updated>2018-12-16T05:57:54.983Z</updated>
   <id>liubailin2017@github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello Http</title>
+    <link href="liubailin2017@github.io/2018/12/16/helloHttp/"/>
+    <id>liubailin2017@github.io/2018/12/16/helloHttp/</id>
+    <published>2018-12-16T05:57:54.983Z</published>
+    <updated>2018-12-16T05:57:54.983Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h4><p>​    同样开始还是来一段引言,来说明我为什么写这篇文章与这篇文章主要是讲的什么,好, 废话不多说,下面开始正文.</p><p>​    首先,网上关于http的文章一抓一大把,虽然是讲得很详细,但是读完,我也只是知道了个大概,不知道一个http请求怎么发送,与怎么响应.也就是读完大多文章只是感性的对http.所以我用这篇文章来讲解用java的Sokcet来发送一个http请求,和得到对应的响应,不对http做完整的讲解.</p><h4 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h4><p>​    建议读者移步<a href="https://github.com/hadyang/interview/blob/master/basic/net/http.md" target="_blank" rel="noopener">到此</a>了解http的详细,下面的内容默认读都已经阅读了上个链接的文章.</p><h4 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h4><h5 id="用java的Socket发送一个http请求"><a href="#用java的Socket发送一个http请求" class="headerlink" title="用java的Socket发送一个http请求"></a>用java的Socket发送一个http请求</h5><p><a href="https://github.com/liubailin2017/Hello_Java/tree/master/http" target="_blank" rel="noopener">代码详细</a></p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/page2/request.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p>上面程序等同在浏览器中输入 <a href="http://www.hqhworld.cn/img/eventimg/PwYvKIKMuK6g.jpg.jpg" target="_blank" rel="noopener">http://www.hqhworld.cn/img/eventimg/PwYvKIKMuK6g.jpg.jpg</a></p><p>​    <a href="http://www.hqhworld.cn" target="_blank" rel="noopener">www.hqhworld.cn</a> 是我一个云服务器,随时都有可能停,如果读者要自己试试,失败的话可以用其它网站.最好不要是https的. https笔者没有太多了解过.</p><p>上面代码只发送了请求头,没有加请求参数. </p><h5 id="接收响应"><a href="#接收响应" class="headerlink" title="接收响应"></a>接收响应</h5><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/page2/response.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p>我们把接收到的内容写进 /home/liubailin/ttttttt.data 文件中.</p><h5 id="查看响应内容"><a href="#查看响应内容" class="headerlink" title="查看响应内容"></a>查看响应内容</h5><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/page2/data.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p>这是我接收到的内容(/home/liubailin/tttttttt.data),下面乱码主要是接到的是一张图片,如果去掉上面的响应头就是一张png图片了.</p><p>上面代码只发送了请求头,下面我们加入请求参数. 我们只讲解get 和post请求方式. </p><h5 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h5><p>我们把上面代码的url改为如下代码</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/page2/get.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p>Get就是把请求参数放在url中. </p><h5 id="Post"><a href="#Post" class="headerlink" title="Post"></a>Post</h5><p>为了简单我们用的方式(这要看web服务器中要获取的是什么格式的)</p><p>下面给出一个登录的表单.</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">String authorize = <span class="string">"stu_nmb=163796&amp;passwd=liubailin12&amp;tmp=0000a"</span>;</span><br><span class="line">os.write((<span class="string">"POST /asport/login.do? HTTP/1.1\r\n"</span> + </span><br><span class="line"><span class="string">"Host: www.hqhworld.cn:8080\r\n"</span> + </span><br><span class="line"><span class="string">"Content-Type: application/x-www-form-urlencoded\r\n"</span>+</span><br><span class="line"><span class="string">"Accept-Language: zh-cn,zh;q=0.5\r\n"</span> + </span><br><span class="line"><span class="string">"Accept-Encoding: gzip, deflate\r\n"</span> + </span><br><span class="line"><span class="string">"Accept-Charset: GB2312,utf-8;q=0.7,*;q=0.7\r\n"</span> + </span><br><span class="line"><span class="comment">//"Cache-Control: no-cache\r\nPostman-Token: e00dbaf5-15e8-3667-6fc5-48ee3cc89758\r\n" +</span></span><br><span class="line"><span class="comment">//+ "Cookie:"+</span></span><br><span class="line"><span class="string">"Content-Length: "</span>+authorize.length()+<span class="string">"\r\n"</span>+</span><br><span class="line"><span class="string">"\r\n"</span>+</span><br><span class="line">authorize+</span><br><span class="line"><span class="string">"\r\n"</span>).getBytes(<span class="string">"UTF-8"</span>));</span><br><span class="line">os.flush();</span><br></pre></td></tr></table></figure><p>“Content-Type: application/x-www-form-urlencoded\r\n” // 这个主要指定post请求中包含的内容类型,另外还有</p><p>Content-Type: multipart/form-data;</p><p>Content-Type: application/json</p><p>其实就是你的这个post请求数据的格式,然后服务器就按这样的格式读取数据.</p><p>如果要知道详细,请参见其它地方.</p><p>这里我们使用最简单的Content-Type: application/x-www-form-urlencoded(这要看服务接收的类型,所以选了个接收这样表单的web服务器.)</p><hr><p>NOTE :</p><p>其实Content-Type: application/x-www-form-urlencoded类型和get的数据形势是一样的, 只是get是把数据放在url中,而post是放在请求体中.面放在请求做中是没有大小限制的.</p><p>其实, get也可以传文件, 只是有大小限制,如果你把一个文件转成base64码,放在url中, 所以其实在设计web服务器时是很奶灵活的,采取不同设计不可以迷惑一些爬虫程序.</p><p>上面是个人看法.</p><hr><p>“Content-Length: “+authorize.length()+”\r\n” //这个一定要写, 因为你不写服务器就不知道你传过去了多少数据,服务器就接收到不参数.</p><p>这里可以看到登录成功是服务器返回的数据:</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/page2/resJosn.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h4&gt;&lt;p&gt;​    同样开始还是来一段引言,来说明我为什么写这篇文章与这篇文章主要是讲的什么,好, 废话不多说,下面开始正文.&lt;/p&gt;
+&lt;p&gt;​   
+      
+    
+    </summary>
+    
+      <category term="http" scheme="liubailin2017@github.io/categories/http/"/>
+    
+    
+      <category term="java" scheme="liubailin2017@github.io/tags/java/"/>
+    
+      <category term="Http" scheme="liubailin2017@github.io/tags/Http/"/>
+    
+  </entry>
   
   <entry>
     <title>交换两数 C</title>

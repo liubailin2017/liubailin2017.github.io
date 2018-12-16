@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Hello Http | Liubailin&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="java,Http">
+    <meta name="description" content="引言​    同样开始还是来一段引言,来说明我为什么写这篇文章与这篇文章主要是讲的什么,好, 废话不多说,下面开始正文. ​    首先,网上关于http的文章一抓一大把,虽然是讲得很详细,但是读完,我也只是知道了个大概,不知道一个http请求怎么发送,与怎么响应.也就是读完大多文章只是感性的对http.所以我用这篇文章来讲解用java的Sokcet来发送一个http请求,和得到对应的响应,不对h">
+<meta name="keywords" content="java,Http">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hello Http">
+<meta property="og:url" content="liubailin2017@github.io/2018/12/16/helloHttp/index.html">
+<meta property="og:site_name" content="Liubailin&#39;s blog">
+<meta property="og:description" content="引言​    同样开始还是来一段引言,来说明我为什么写这篇文章与这篇文章主要是讲的什么,好, 废话不多说,下面开始正文. ​    首先,网上关于http的文章一抓一大把,虽然是讲得很详细,但是读完,我也只是知道了个大概,不知道一个http请求怎么发送,与怎么响应.也就是读完大多文章只是感性的对http.所以我用这篇文章来讲解用java的Sokcet来发送一个http请求,和得到对应的响应,不对h">
+<meta property="og:image" content="/images/page2/request.png">
+<meta property="og:image" content="/images/page2/response.png">
+<meta property="og:image" content="/images/page2/data.png">
+<meta property="og:image" content="/images/page2/get.png">
+<meta property="og:image" content="/images/page2/resJosn.png">
+<meta property="og:updated_time" content="2018-12-16T05:57:54.983Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hello Http">
+<meta name="twitter:description" content="引言​    同样开始还是来一段引言,来说明我为什么写这篇文章与这篇文章主要是讲的什么,好, 废话不多说,下面开始正文. ​    首先,网上关于http的文章一抓一大把,虽然是讲得很详细,但是读完,我也只是知道了个大概,不知道一个http请求怎么发送,与怎么响应.也就是读完大多文章只是感性的对http.所以我用这篇文章来讲解用java的Sokcet来发送一个http请求,和得到对应的响应,不对h">
+<meta name="twitter:image" content="/images/page2/request.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Liubailin&#39;s blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/headimg.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Penguin</h5>
+          <a href="mailto:liubailinprivate@163.com" title="liubailinprivate@163.com" class="mail">liubailinprivate@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/liubailin2017" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.hqhworld.cn/page?stunmb=163796" target="_blank" >
+                <i class="icon icon-lg icon-angellist"></i>
+                关于作者
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Hello Http</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Hello Http</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-12-16T05:57:54.983Z" itemprop="datePublished" class="page-time">
+  2018-12-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/http/">http</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#引言"><span class="post-toc-number">1.</span> <span class="post-toc-text">引言</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#基础"><span class="post-toc-number">2.</span> <span class="post-toc-text">基础</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#正文"><span class="post-toc-number">3.</span> <span class="post-toc-text">正文</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#用java的Socket发送一个http请求"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">用java的Socket发送一个http请求</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#接收响应"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">接收响应</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#查看响应内容"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">查看响应内容</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#GET"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">GET</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Post"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">Post</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-helloHttp"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Hello Http</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-12-16 13:57:54" datetime="2018-12-16T05:57:54.983Z"  itemprop="datePublished">2018-12-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/http/">http</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h4 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h4><p>​    同样开始还是来一段引言,来说明我为什么写这篇文章与这篇文章主要是讲的什么,好, 废话不多说,下面开始正文.</p>
+<p>​    首先,网上关于http的文章一抓一大把,虽然是讲得很详细,但是读完,我也只是知道了个大概,不知道一个http请求怎么发送,与怎么响应.也就是读完大多文章只是感性的对http.所以我用这篇文章来讲解用java的Sokcet来发送一个http请求,和得到对应的响应,不对http做完整的讲解.</p>
+<h4 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h4><p>​    建议读者移步<a href="https://github.com/hadyang/interview/blob/master/basic/net/http.md" target="_blank" rel="noopener">到此</a>了解http的详细,下面的内容默认读都已经阅读了上个链接的文章.</p>
+<h4 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h4><h5 id="用java的Socket发送一个http请求"><a href="#用java的Socket发送一个http请求" class="headerlink" title="用java的Socket发送一个http请求"></a>用java的Socket发送一个http请求</h5><p><a href="https://github.com/liubailin2017/Hello_Java/tree/master/http" target="_blank" rel="noopener">代码详细</a></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/page2/request.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>上面程序等同在浏览器中输入 <a href="http://www.hqhworld.cn/img/eventimg/PwYvKIKMuK6g.jpg.jpg" target="_blank" rel="noopener">http://www.hqhworld.cn/img/eventimg/PwYvKIKMuK6g.jpg.jpg</a></p>
+<p>​    <a href="http://www.hqhworld.cn" target="_blank" rel="noopener">www.hqhworld.cn</a> 是我一个云服务器,随时都有可能停,如果读者要自己试试,失败的话可以用其它网站.最好不要是https的. https笔者没有太多了解过.</p>
+<p>上面代码只发送了请求头,没有加请求参数. </p>
+<h5 id="接收响应"><a href="#接收响应" class="headerlink" title="接收响应"></a>接收响应</h5><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/page2/response.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>我们把接收到的内容写进 /home/liubailin/ttttttt.data 文件中.</p>
+<h5 id="查看响应内容"><a href="#查看响应内容" class="headerlink" title="查看响应内容"></a>查看响应内容</h5><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/page2/data.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>这是我接收到的内容(/home/liubailin/tttttttt.data),下面乱码主要是接到的是一张图片,如果去掉上面的响应头就是一张png图片了.</p>
+<p>上面代码只发送了请求头,下面我们加入请求参数. 我们只讲解get 和post请求方式. </p>
+<h5 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h5><p>我们把上面代码的url改为如下代码</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/page2/get.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>Get就是把请求参数放在url中. </p>
+<h5 id="Post"><a href="#Post" class="headerlink" title="Post"></a>Post</h5><p>为了简单我们用的方式(这要看web服务器中要获取的是什么格式的)</p>
+<p>下面给出一个登录的表单.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">String authorize = <span class="string">"stu_nmb=163796&amp;passwd=liubailin12&amp;tmp=0000a"</span>;</span><br><span class="line">os.write((<span class="string">"POST /asport/login.do? HTTP/1.1\r\n"</span> + </span><br><span class="line">		<span class="string">"Host: www.hqhworld.cn:8080\r\n"</span> + </span><br><span class="line">		<span class="string">"Content-Type: application/x-www-form-urlencoded\r\n"</span>+</span><br><span class="line">		<span class="string">"Accept-Language: zh-cn,zh;q=0.5\r\n"</span> + </span><br><span class="line">		<span class="string">"Accept-Encoding: gzip, deflate\r\n"</span> + </span><br><span class="line">		<span class="string">"Accept-Charset: GB2312,utf-8;q=0.7,*;q=0.7\r\n"</span> + </span><br><span class="line">		<span class="comment">//"Cache-Control: no-cache\r\nPostman-Token: e00dbaf5-15e8-3667-6fc5-48ee3cc89758\r\n" +</span></span><br><span class="line">		<span class="comment">//+ "Cookie:"+</span></span><br><span class="line">		<span class="string">"Content-Length: "</span>+authorize.length()+<span class="string">"\r\n"</span>+</span><br><span class="line">		<span class="string">"\r\n"</span>+</span><br><span class="line">		authorize+</span><br><span class="line">		<span class="string">"\r\n"</span>).getBytes(<span class="string">"UTF-8"</span>));</span><br><span class="line">os.flush();</span><br></pre></td></tr></table></figure>
+<p>“Content-Type: application/x-www-form-urlencoded\r\n” // 这个主要指定post请求中包含的内容类型,另外还有</p>
+<p>Content-Type: multipart/form-data;</p>
+<p>Content-Type: application/json</p>
+<p>其实就是你的这个post请求数据的格式,然后服务器就按这样的格式读取数据.</p>
+<p>如果要知道详细,请参见其它地方.</p>
+<p>这里我们使用最简单的Content-Type: application/x-www-form-urlencoded(这要看服务接收的类型,所以选了个接收这样表单的web服务器.)</p>
+<hr>
+<p>NOTE :</p>
+<p>其实Content-Type: application/x-www-form-urlencoded类型和get的数据形势是一样的, 只是get是把数据放在url中,而post是放在请求体中.面放在请求做中是没有大小限制的.</p>
+<p>其实, get也可以传文件, 只是有大小限制,如果你把一个文件转成base64码,放在url中, 所以其实在设计web服务器时是很奶灵活的,采取不同设计不可以迷惑一些爬虫程序.</p>
+<p>上面是个人看法.</p>
+<hr>
+<p>“Content-Length: “+authorize.length()+”\r\n” //这个一定要写, 因为你不写服务器就不知道你传过去了多少数据,服务器就接收到不参数.</p>
+<p>这里可以看到登录成功是服务器返回的数据:</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/page2/resJosn.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-12-16T05:57:54.983Z" itemprop="dateUpdated">2018-12-16 13:57:54</time>
+</span><br>
+
+
+        
+        最后请点下面赞赏,支持一袋辣条 :-)。
+        
+    </div>
+    <footer>
+        <a href="liubailin2017@github.io">
+            <img src="/img/headimg.png" alt="Penguin">
+            Penguin
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Http/">Http</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=liubailin2017@github.io/2018/12/16/helloHttp/&title=《Hello Http》 — Liubailin's blog&pic=liubailin2017@github.io/img/headimg.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=liubailin2017@github.io/2018/12/16/helloHttp/&title=《Hello Http》 — Liubailin's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=liubailin2017@github.io/2018/12/16/helloHttp/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Hello Http》 — Liubailin's blog&url=liubailin2017@github.io/2018/12/16/helloHttp/&via=liubailin2017@github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=liubailin2017@github.io/2018/12/16/helloHttp/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/11/26/HelloC/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">交换两数 C</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Penguin &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=liubailin2017@github.io/2018/12/16/helloHttp/&title=《Hello Http》 — Liubailin's blog&pic=liubailin2017@github.io/img/headimg.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=liubailin2017@github.io/2018/12/16/helloHttp/&title=《Hello Http》 — Liubailin's blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=liubailin2017@github.io/2018/12/16/helloHttp/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Hello Http》 — Liubailin's blog&url=liubailin2017@github.io/2018/12/16/helloHttp/&via=liubailin2017@github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=liubailin2017@github.io/2018/12/16/helloHttp/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3aS27jMBAFwNz/0s42A8Sa95pyAJGllWFLlEqLNvvz9RUfrx/Hu+9//vru++trr8+/4cDAwHgsI1kuucE1dcYuqBgYGAcw3j3WXZ+TMPqOcf1sGBgYGNfnJGExD8H5fTEwMDBaRku9vgoDAwNjJYm9DpGfC7g35+IYGBgPZORV97///JH+BgYGxqMYr/LIS2N5uW0Wvv+5CgMDY2tGm6C2zc6VzWU9/IGBgbEpY5ZkrhTXkodOgu/SlAcGBsajGG25Ldkgzh4oX+c//xsYGBjbMWbNyzZ9zWNju03EwMA4jZFcvJ6ytitH20oMDIwDGG34uw7B68G6TqExMDCOZLRFt/WQmuN/ORMDA2NrxkqpKy/xr4xuFK8VAwNja8Ys5LUltiR0ttvKYtIWAwPj4Yw2cW2La1Fxvxz1wMDAOIeR3yx5EfljzQbIogFWDAyM7RizNHXWBmhT5aV3iYGBsREjX3q9oL8yrhGV2DAwMDZl5MF3VkRrB7/a4Q8MDIxzGLk1GdJqmwd3jWhgYGCcwJg1Bu6K9LNrMTAwTmMkxa+VEbG2ndBW1TAwMHZlvMpjlo7OXtZwU4iBgbEdY6VLmCw6Gxe7a+AMAwNjJ0Y7SNG2MFdK/8VwBgYGxgGM2bDFSjuhHQuLAi4GBgbGQjraNiGSYP2RgIuBgbERY5YNF1u9trWJgYFxAGOWWObBNC/bJcMWGBgYpzHaQDlcoiyltS8RAwNjU8Y32BYPLKmcU7YAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '(つェ⊂)';
+            clearTimeout(titleTime);
+        } else {
+            document.title = 'Welcome';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
